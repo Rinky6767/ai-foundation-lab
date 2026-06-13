@@ -1,0 +1,7 @@
+{
+    "agent_name": "DataBot",
+    "model_engine": "gpt-4.1",
+    "temperature": 0.3,
+    "max_retries": 3,
+    "is_active": true
+}
