@@ -27,20 +27,20 @@ def mock_api_call(prompt, simulate_timeout=False, simulate_missing_key=False):
             malformed_response = {"text": "Hello, world!"}
                 #This line will cause a KeyError because 'usage_metrics' is not in the dictionary
             tokens = malformed_response['usage_metrics']
-            print('Tokens used: ', tokens)
+            print(f'Tokens used: ', tokens)
     
         if simulate_timeout:
             raise TimeoutError("LLM API time out")
     
         tokens= response["usage_metrics"]["tokens"]
-        print("Toeken used: {tokens}")
-        print("Response: ",response["text"])
+        print(f"Toeken used: {tokens}")
+        print(f"Response: ",response["text"])
    
     except KeyError as e:
-        print("\n[CRITICAL ERROR] Missing key in response: {e}")
+        print(f"\n[CRITICAL ERROR] Missing key in response: {e}")
     
     except TimeoutError as e:
-        print("\n[NETWORK ERROR] {e}")
+        print(f"\n[NETWORK ERROR] {e}")
     
     finally:
         print("API transaction finalized ")
